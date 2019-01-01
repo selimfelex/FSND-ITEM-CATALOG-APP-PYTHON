@@ -4,7 +4,7 @@
 TEMP/
 
 #Json secret files
-client_secret.json
+client_secrets.json
 
 #desing doc
 design doc/
