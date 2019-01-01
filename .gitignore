@@ -1,0 +1,10 @@
+
+
+# temp files
+TEMP/
+
+#Json secret files
+client_secret.json
+
+#desing doc
+design doc/

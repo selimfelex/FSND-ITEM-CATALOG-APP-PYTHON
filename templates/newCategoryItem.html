@@ -1,0 +1,36 @@
+{% extends "main.html" %}
+{% block content %}
+
+<div class="leftPane">
+<h2>Add a new  Item </h2>
+<div>
+<form action="{{url_for('newItem')}}" method="POST">
+	<p>Name:<input type='text' size='30' name='name'></p>
+	
+	</br>
+	<p>description:<input type='text' size = '150 'name='description'></p>
+	
+	</br>
+	<p>price:<input type='text' size = '20' name='price'></p>
+	
+	</br>
+<p>Category:</p>
+	
+
+<select name="catf">
+	{% for cat in categories %}
+  <option value="{{ cat.id }}">{{cat.name}}</option>
+{% endfor %}
+</select>
+<br>
+<br>
+	<input type='submit' value='create'>
+<br>
+	
+	
+</form>
+</div>
+<br>
+<a href = "{{url_for('showCategories')}}"> Cancel </a>
+</div>
+{% endblock %}

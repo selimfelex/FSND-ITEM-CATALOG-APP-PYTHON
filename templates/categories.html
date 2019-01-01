@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% block content %}
+
+<div class="leftPane">
+<h2>Categories</h2>
+	{% for category in categories %}
+	<div>
+		<a href="{{url_for('showCategoryItems', category_id = category.id)}}"><h3>{{category.name}}</h3></a>
+			<p><a href="{{url_for('editCategory', category_id = category.id)}}">Edit Category</a></p>
+			<p><a href="{{url_for('deleteCategory', category_id = category.id)}}">Delete Category</a></p>
+	</div>
+	{% endfor %}
+	<a href = "{{url_for('newCategory')}}"> Add new Category </a>
+
+<div class="rightpane">
+	<h2>Latest Items</h2>
+
+	<div >
+			{% for item in items %}
+			<p><a href="{{url_for('showItemDetails',category_id = item.category_id,item_id=item.id)}}">{{item.name}}</a>
+			&nbsp;&#40;{{item.category.name}}&nbsp;&#41;</p>
+	
+		
+		
+		{% endfor %}
+		<a href = "{{url_for('newItem')}}"> Add new Item </a>
+	</div>
+	
+</div>
+</div>
+{% endblock %}

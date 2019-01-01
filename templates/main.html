@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+			<div class="header" >
+				<h1> Catalog App
+					<button type="button" class="loginbutton">
+			
+						{%if 'username' not in session %}
+						<a href="{{url_for('showLogin')}}"> Login </a>
+						{% else %}
+						<a href="{{url_for('gdisconnect')}}">Logout </a>
+						{% endif %}
+					</button> </h1>
+				
+			</div>
+			<div class = 'flash'>
+					{% with messages = get_flashed_messages() %}
+					{% if messages %}
+			  		<ul>
+			  		{% for message in messages %}
+				  	<li> <strong> {{ message }} </strong> </li>
+			  		{% endfor %}
+			  		</ul>
+			  		{% endif %}
+		  			{% endwith %}
+	  
+	  		</div>
+		
+			<div class="container">
+
+			{% block content %}
+			{% endblock %}
+		</div>
+	</body>
+</html>

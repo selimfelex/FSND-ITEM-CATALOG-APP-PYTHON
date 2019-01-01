@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+{% block content %}
+
+<div class="leftPane">
+<h2>Categories</h2>
+	{% for category in categories %}
+	<div>
+		<a href="{{url_for('showCategoryItems', category_id = category.id)}}"><h3>{{category.name}}</h3></a>
+
+	</div>
+	{% endfor %}
+
+
+<div class="rightpane">
+	<h2>Latest Items</h2>
+
+	<div >
+			{% for item in items %}
+			<p><a href="{{url_for('showItemDetails',category_id = item.category_id,item_id=item.id)}}">{{item.name}}</a>
+			&nbsp;&#40;{{item.category.name}}&nbsp;&#41;</p>
+	
+		
+		
+		{% endfor %}
+
+	</div>
+	
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+{% block content %}
+
+<div class="leftPane">
+<h2>Delete  Item</h2>
+<h3> Are you sure you want to delete {{item.name}} Item? </h3>
+<form action='{{url_for('deleteItem',item_id=item.id,category_id=item.category_id)}}' method='post'>
+
+	<input type='submit' value='Delete'>
+</form>
+<br>
+<a href = "{{url_for('showCategories')}}"> Cancel </a>
+</div>
+{% endblock %}

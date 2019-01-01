@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="leftPane">
+		<h2>Categories</h2>
+		{% for category in categories %}
+		<div>
+			<a href="{{url_for('showCategoryItems', category_id = category.id)}}"><h3>{{category.name}}</h3></a>
+
+		</div>
+		{% endfor %}
+
+
+		<div class="rightpane">
+
+<h2>{{category.name}} Items &nbsp;&#40;{{itemscount}} item &nbsp;&#41; </h2>
+{% for item in items %}
+</br>
+<a href="{{url_for('showItemDetails', category_id = item.category_id,item_id=item.id)}}">{{item.name}}</a></br>
+
+</br>
+{% endfor %}
+</div>
+</div>
+{% endblock %}
